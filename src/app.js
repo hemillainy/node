@@ -2,8 +2,11 @@
 
 const bodyParser = require('body-parser');
 
+const express = require('express');
 const app = express();
 
+const index = require('./routes/index');
+const router = express.Router();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -25,7 +28,7 @@ const del = router.delete('/', (req, res, next) => {
     res.status(200).send(req.body);
 });
 
-app.use('/', route);
+app.use('/', index);
 app.use('/products', create);
 app.use('/products', put);
 app.use('/products', del);
