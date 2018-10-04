@@ -2,6 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
+const controller = require('../controllers/product-controller');
 
 router.get('/', (req, res, next) => {
     res.status(200).send({
@@ -10,20 +11,8 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.post('/', (req, res, next) => {
-    res.status(201).send(req.body);
-});
-
-router.put('/:id', (req, res, next) => {
-    const id = req.params.id;
-    res.status(200).send({
-        id: id,
-        item: req.body
-    });
-});
-
-router.delete('/', (req, res, next) => {
-    res.status(200).send(req.body);
-});
+router.post('/', controllerl.post);
+router.put('/:id', controller.put);
+router.delete('/', controller.delete);
 
 module.exports = router;
