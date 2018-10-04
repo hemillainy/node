@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.post('/', controllerl.post);
+router.post('/', controller.post);
 router.put('/:id', controller.put);
 router.delete('/', controller.delete);
 
